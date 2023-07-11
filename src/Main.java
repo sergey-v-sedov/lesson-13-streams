@@ -59,5 +59,12 @@ public class Main {
                 .orElse("");
 
         System.out.println("longestWord = " + longestWord);
+
+        // --------------------------------------------------------
+
+        List<Integer> array = list.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+        System.out.println(array);
+
+
     }
 }
