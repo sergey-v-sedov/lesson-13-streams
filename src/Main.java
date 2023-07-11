@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -43,6 +44,20 @@ public class Main {
 
         listOfLists.stream().flatMap(x -> x.stream()).map(e -> e*2).forEach(System.out::println);
 
+        // -------------------------------------------
 
+        List<String> text = Arrays.asList(
+                "This is the first sentence.",
+                "Here comes the second sentence.",
+                "And finally, the third sentence."
+        );
+
+        // Cамое длинное слово в тексте
+        String longestWord = text.stream()
+                .flatMap(sentence -> Arrays.stream(sentence.split(" ")))
+                .max((word1, word2) -> word1.length() - word2.length())
+                .orElse("");
+
+        System.out.println("longestWord = " + longestWord);
     }
 }
